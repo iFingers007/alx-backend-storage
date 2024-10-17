@@ -1,5 +1,6 @@
 --  ranks country origins of bands
 -- ordered by the number of (non-unique) fans
+SOURCE metal_bands.sql
 SELECT origin, COUNT(*) AS nb_fans
 FROM metal_bands
 GROUP BY origin
