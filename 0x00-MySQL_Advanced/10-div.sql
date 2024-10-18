@@ -10,7 +10,7 @@ BEGIN
 	IF b = 0 THEN
 	   RETURN 0;
 	ELSE
-		RETUN a / b;
+		RETURN a / b;
 	END IF;
 END $$
 DELIMITER ;
