@@ -22,3 +22,21 @@ class Cache:
         key = str(uuid.uuid4())  # Generate a random UUID string
         self._redis.set(key, data)  # Store the data in Redis
         return key
+
+    def get_str(self, key: str) -> Optional[str]:
+        """
+        Retrieve data as a UTF-8 decoded string.
+
+        :param key: The key to retrieve from Redis.
+        :return: The data decoded as a string, or None.
+        """
+        return self.get(key, fn=lambda d: d.decode('utf-8'))
+
+    def get_int(self, key: str) -> Optional[int]:
+        """
+        Retrieve data as an integer.
+
+        :param key: The key to retrieve from Redis.
+        :return: The data converted to an integer, or None.
+        """
+        return self.get(key, fn=int)
